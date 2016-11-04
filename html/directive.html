@@ -1,0 +1,17 @@
+<!DOCTYPE>
+<html ng-app="">
+	<head>
+		<title>指令</title>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		<h1>数据绑定</h1>
+		<h2>价格计算器</h2>
+
+		数量： <input type="number"	ng-model="quantity">
+		价格： <input type="number" ng-model="price">
+
+		<p><b>总价：</b> {{ quantity * price }}</p>
+	</body>
+</html>
