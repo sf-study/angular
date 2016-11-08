@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>模型</title>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<style>
+			input.ng-invalid {
+				background-color: lightblue;
+			}
+			input.ng-valid{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定 -->
+		<div ng-app="myApp1" ng-controller="myCtrl1">
+			name:<input ng-model="name" />
+			<h1>你输入：{{name}}</h1>
+			<!-- 用户输入验证 -->
+			<form name="myForm" ng-init="myText = 'test@runoob.com'">
+			    Email:
+			    <input type="email" name="myAddress" ng-model="myText">
+			    <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+			    <h1>状态</h1>
+			    <p>{{myForm.myAddress.$valid}}(如果输入的值是合法的则为 true)</p>
+			    <p>{{myForm.myAddress.$dirty}}(如果值改变则为 true)</p>
+			    <p>{{myForm.myAddress.$touched}}(如果通过触屏点击则为 true)</p>
+			</form>
+		</div>
+		<script type="text/javascript">
+			var app1=angular.module("myApp1",[]);
+			app1.controller("myCtrl1",function($scope){
+				$scope.name="Jone Doe";
+			});
+		</script>
+
+	</body>
+</html>
