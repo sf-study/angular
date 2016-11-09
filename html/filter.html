@@ -1,0 +1,56 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<title>scope</title>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myCtrl">
+			名：<input type="text" ng-model="firstName" /><br />
+			名：<input type="text" ng-model="lastName" /><br />
+			<br />
+			<!-- 在表达式中添加大小写 -->
+			<!-- 转换大小写 -->
+			<h1>{{firstName|uppercase}}</h1>
+			<h1>{{firstName|lowercase}}</h1>
+
+			<input type="number" ng-model="quantity">
+			<input type="number" ng-model="price">
+			<p>总价 = {{ (quantity * price) | currency }}</p>
+
+			<!-- 向指令中添加过滤器 -->
+			<ul>
+				<li ng-repeat="x in names |orderBy:'country'">
+					{{x.name+","+x.country}}
+				</li>
+			</ul>
+
+			<!-- 输入过滤 -->
+			<p>
+				<input type="text" ng-model="test" />
+			</p>
+			<ul>
+				<li ng-repeat="x in names |filter:test|orderBy:'country'">
+					{{x.name+","+x.country}}
+				</li>
+			</ul>
+		</div>
+
+		<script>
+			var app=angular.module("myApp",[]);
+				app.controller("myCtrl",function($scope){
+					$scope.firstName="John";
+					$scope.lastName="Doe";
+					$scope.fullName=function(){
+						return $scope.firstName+""+$scope.lastName;
+					};
+					$scope.names = [
+				        {name:'Jani',country:'Norway'},
+				        {name:'Hege',country:'Sweden'},
+				        {name:'Kai',country:'Denmark'}
+				    ];
+				});
+		</script>
+	</body>
+</html>

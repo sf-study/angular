@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<title>scope</title>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		<!-- ng-controller指令定义了一个控制器 -->
+		<div ng-controller="myCtrl">
+
+			名: <input type="text" ng-model="firstName"><br>
+			姓: <input type="text" ng-model="lastName"><br>
+			<br>
+			姓名: {{firstName + " " + lastName}}
+			<br>
+			姓名: {{fullName()}}
+		</div>
+
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+			    $scope.firstName = "John";
+			    $scope.lastName = "Doe";
+			    $scope.fullName = function() {
+			        return $scope.firstName + " " + $scope.lastName;
+			    }
+			});
+		</script>
+	</body>
+</html>

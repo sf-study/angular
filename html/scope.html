@@ -8,12 +8,21 @@
 	<body>
 		<div ng-controller="myCtrl">
 			<h1>{{carname}}</h1>
+
+			<!-- 如果你修改了视图，模型和控制器也会相应更新： -->
+
+			<input ng-model="name">
+
+			<h1>我的名字是 {{name}}</h1>
+
+			<h1>{{lastname}}</h1>
 		</div>
 		<script type="text/javascript">
 			var app=angular.module("myApp",[]);
 			// 创建控制器
-			app.controller("myCtrl",function($scope){
+			app.controller("myCtrl",function($scope,$rootScope){
 				$scope.carname="Volvo";
+				$rootScope.lastname = "Refsnes";
 			});
 		</script>
 	</body>
