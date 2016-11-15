@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS 事件</title>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myCtrl" ng-init="mySwitch=true">
+			<button ng-click="count = count + 1">点我！</button>
+
+			<p>{{ count }}</p>
+		</div>
+
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope,$http) {
+			    
+			});
+		</script>
+	</body>
+</html>

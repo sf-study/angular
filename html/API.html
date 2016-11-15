@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS API</title>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myCtrl">
+			<p>{{ x1 }}</p>
+			<p>{{ x2 }}</p>
+
+			<p>{{ x3 }}</p>
+			<p>{{ x4 }}</p>
+
+			<p>{{ x5 }}</p>
+
+			<p>{{ x6 }}</p>
+		</div>
+
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+				$scope.x1 = "JOHN";
+				$scope.x2 = angular.lowercase($scope.x1);
+
+				$scope.x3='lizhaoxin';
+				$scope.x4=angular.uppercase($scope.x3);
+
+				$scope.x5=angular.isString($scope.x3);
+
+				$scope.x6=angular.isNumber($scope.x3);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS DOM</title>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="myCtrl" ng-init="mySwitch=true">
+			<!-- ng-disabled 指令 -->
+			<p>
+			<button ng-disabled="mySwitch">点我!</button>
+			</p>
+
+			<p>
+			<input type="checkbox" ng-model="mySwitch">按钮
+			</p>
+
+			<p>
+			{{ mySwitch }}
+			</p>
+
+			<!-- ng-show 指令 -->
+
+			<p ng-show="true">我是可见的。</p>
+
+			<p ng-show="false">我是不可见的。</p>
+
+			<!-- ng-hide 指令 -->
+			<p ng-hide="true">我是不可见的。</p>
+
+			<p ng-hide="false">我是可见的。</p>
+
+		</div>
+
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope,$http) {
+			    
+			});
+		</script>
+	</body>
+</html>
