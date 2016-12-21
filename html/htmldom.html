@@ -34,9 +34,19 @@
 		</div>
 
 		<script>
+			// jsonp请求
+			// callback=JSON_CALLBACK
 			var app = angular.module('myApp', []);
 			app.controller('myCtrl', function($scope,$http) {
-			    
+			    myUrl ="http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1&callback=JSON_CALLBACK";
+				$http.jsonp(myUrl).success(
+					function(data){
+						$scope.portalcate = data.result;
+						console.log(data);
+					}
+				).error(function(){
+					console.log('shibai');
+				});
 			});
 		</script>
 	</body>

@@ -12,19 +12,40 @@
 			名: <input type="text" ng-model="firstName"><br>
 			姓: <input type="text" ng-model="lastName"><br>
 			<br>
-			姓名: {{firstName + " " + lastName}}
-			<br>
-			姓名: {{fullName()}}
+			姓名: {{param.firstName}}
+
+		</div>
+
+		<div ng-controller="myCtrl2">
+			内容{{param.firstName}}
+			<input ng-model='param.firstName' />
 		</div>
 
 		<script>
 			var app = angular.module('myApp', []);
+			var myCtrl={
+				param:{
+					firstName:''
+				},
+				init:function($scope){
+					// var self=this;
+					$scope.param=this.param;
+					$scope.param.firstName='xinxin';
+					this.param.firstName='xinxin';
+				}
+			}
 			app.controller('myCtrl', function($scope) {
-			    $scope.firstName = "John";
-			    $scope.lastName = "Doe";
-			    $scope.fullName = function() {
-			        return $scope.firstName + " " + $scope.lastName;
-			    }
+			    myCtrl.init($scope);
+			});
+
+
+			var myCtrl2={
+				init:function($scope){
+					$scope.param=myCtrl.param;
+				}
+			}
+			app.controller('myCtrl2', function($scope) {
+			    myCtrl2.init($scope);
 			});
 		</script>
 	</body>
